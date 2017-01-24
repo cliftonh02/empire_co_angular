@@ -1,4 +1,8 @@
 (function(){
-  angular.module('empireCo', ['ngRoute']);
+  angular
+  .module('empireCo', [
+    'ui.router'
+  ])
+  .config(['$stateProvider', Router])
 
 })();
