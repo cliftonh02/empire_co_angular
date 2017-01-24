@@ -1,9 +1,13 @@
 (function(){
   angular
   .module('empireCo')
-  .controller('ProductsIndexController', productsIndexController);
-    function productsIndexController(){
-      this.products = gear;
+  .controller('ProductsIndexController', ["$stateParams", productsIndexController]);
+
+
+
+    function productsIndexController($stateParams){
+
+      console.log($stateParams);
 
       var gear = [
       {
@@ -17,5 +21,7 @@
       img_url: "https://www.metropolis-collectibles.com/images/xhot902536.jpg",
       price: 990
     }];
+
+      this.products = gear;
   }
 })();
