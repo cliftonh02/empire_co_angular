@@ -1,4 +1,7 @@
 (function(){
-  angular.module('empireCo', []);
+  angular
+  .module('empireCo', [
+    'ui.router'
+  ]);
 
 })();
