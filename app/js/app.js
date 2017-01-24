@@ -1,4 +1,4 @@
 (function(){
-  angular.module('empireCo', []);
+  angular.module('empireCo', ['ngMaterial']);
 
 })();
