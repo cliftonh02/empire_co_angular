@@ -3,11 +3,54 @@
   .module('empireCo')
   .controller('ProductsIndexController', ["$stateParams", productsIndexController]);
 
+ProductsIndexController = ['$http', '$scope']
 
+function ProductsIndexController($http, $scope){
+  var rootURL = 'http://localhost3000';
+
+  //Index
+    $scope.getProducts = function(){
+      $http.get(`${rootURL}/products`)
+        .then(function(res){
+          $scope.product = undefined;
+          console.log($scope.product);
+        })
+        .catch(function(err){
+          if(err)console.log(err);
+        });
+
+  //Show
+    $scope.showProducts = function(){
+        $http.get(`${rootURL}/products/${id}`)
+        .then(function(res){
+          $scope.product = res.data;
+            console.log($scope.product);
+            })
+            .catch(function(err){
+              if(err)console.log(err);
+              });
+          };
+
+    //Delete
+    $scope.destroyProduct = function(id){
+      $http.delete(`${rootURL}/products/${id}`)
+        .then(function(res){
+          $scope.product = undefined;
+          $scope.getGrumbles();
+          console.log($scope.product);
+        })
+        .catch(function(err){
+          if(err)console.log(err);
+        });
+    };
+
+}
 
     function productsIndexController($stateParams){
 
       console.log($stateParams);
+
+
 
       var gear = [
       {
