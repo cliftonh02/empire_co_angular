@@ -1,6 +1,6 @@
 <div>
-  <h1>partial product controller!</h1>
-  <div ng-repeat="product in vm.products">
+  <h1>Items</h1>
+  <div ng-repeat="product in vm.products" ng-controller="ProductsIndexController">
     <h1>{{product.name}}</h1>
     <h2>{{product.price | currency}}</h2>
     <p>{{product.description}}</p>

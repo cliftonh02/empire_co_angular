@@ -1,12 +1,29 @@
 (function(){
   angular
   .module('empireCo')
-  .controller('ProductsIndexController', ["$stateParams", productsIndexController]);
+  .controller('ProductsIndexController', ["$stateParams", ProductsIndexController]);
 
 ProductsIndexController = ['$http', '$scope']
 
 function ProductsIndexController($http, $scope){
-  var rootURL = 'http://localhost3000';
+
+  var gear = [
+  {
+  name: "Standard",
+  description: "It's white.",
+  img_url: "https://tk50167.files.wordpress.com/2011/05/esbtk.jpg?w=500&h=721",
+  price: 99
+  },{
+  name: "First Order",
+  description: "It's new.",
+  img_url: "https://www.metropolis-collectibles.com/images/xhot902536.jpg",
+  price: 990
+  }];
+
+  this.products = gear;
+  }
+
+  var rootURL = 'http://localhost:9000';
 
   //Index
     $scope.getProducts = function(){
@@ -44,27 +61,22 @@ function ProductsIndexController($http, $scope){
         });
     };
 
-}
+    //Create
+    $scope.createProduct = function(){
+      $http.create(`${rootURL}/products/${id}`)
+      .then(function(res){
+        console.log(res.data);
+      })
+      .catch(function(err){
+        if(err)console.log(err);
+      });
+    }
 
-    function productsIndexController($stateParams){
-
-      console.log($stateParams);
+};
 
 
 
-      var gear = [
-      {
-      name: "Standard",
-      description: "It's white.",
-      img_url: "https://tk50167.files.wordpress.com/2011/05/esbtk.jpg?w=500&h=721",
-      price: 99
-    },{
-      name: "First Order",
-      description: "It's new.",
-      img_url: "https://www.metropolis-collectibles.com/images/xhot902536.jpg",
-      price: 990
-    }];
 
-      this.products = gear;
-  }
+
+
 })();

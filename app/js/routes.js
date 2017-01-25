@@ -5,6 +5,11 @@
 
     function Router($stateProvider){
       $stateProvider
+      .state('home', {
+        url:'/'
+      })
+
+
       .state('products', {
         url: '/products',
         templateUrl: "../templates/pages/products/index.html",
