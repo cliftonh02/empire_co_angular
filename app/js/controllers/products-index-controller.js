@@ -3,11 +3,69 @@
   .module('empireCo')
   .controller('ProductsIndexController', ["$stateParams", productsIndexController]);
 
+  ProductsIndexController.$inject = {'$http', '$scope'}
 
+  function ProductsIndexController($http, $scope){
 
-    function productsIndexController($stateParams){
+    var rootURL = 'http://localhost:3000';
+    //Index
+    $scope.getProducts = function(){
+      $http.get('${rootURL}/products')
+      .then(function(res){
+        $scope.products = undefined;
+        console.log($scope.products)
+      })
+      .catch(function(err){
+        if(err)console.log(err)
+      });
+    };
+    //Show
+   $scope.showProducts = function(product){
+     $http.get(`${rootURL}/products/${id}`)
+       .then(function(res){
+         $scope.products = res.data;
+         console.log($scope.products);
+       })
+       .catch(function(err){
+         if(err)console.log(err);
+       });
+   };
+   //Delete
+  $scope.destroyProducts = function(product){
+    $http.post(`${rootURL}/products/${id}`)
+      .then(function(res){
+        $scope.products = undefined;
+        $scope.getProducts();
+        console.log($scope.products);
+      })
+      .catch(function(err){
+        if(err)console.log(err);
+      });
+  };
+  //New
+ $scope.createProducts = function(product){
+   $http.post(`${rootURL}/products,` product)
+     .then(function(res){
+       console.log(res.data);
+     })
+     .catch(function(err){
+       if(err)console.log(err);
+     });
+ };
+ //Edit
+    $scope.editProducts = function(product){
+      $http.put(`${rootURL}/products/${$scope.product.id}`, product)
+        .then(function(res){
+          // $scope.getProducts(); //REdirect to Index
+          $scope.product = res.data;
+          console.log(res.data);
+        })
+        .catch(function(err){
+          if(err)console.log(err);
+        });
+    };
 
-      console.log($stateParams);
+  }
 
       var gear = [
       {

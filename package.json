@@ -1,0 +1,25 @@
+{
+  "name": "empire_co_angular",
+  "version": "1.0.0",
+  "description": "EMPIRE CO API (Front-end)",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-material": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cliftonh02/empire_co_angular.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cliftonh02/empire_co_angular/issues"
+  },
+  "homepage": "https://github.com/cliftonh02/empire_co_angular#readme"
+}
