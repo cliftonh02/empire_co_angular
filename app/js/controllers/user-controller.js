@@ -1,7 +1,7 @@
 (function(){
   angular
   .module()
-  .controller('UserIndexController')
+  .controller('userCtrl')
 
   var user = [
     {

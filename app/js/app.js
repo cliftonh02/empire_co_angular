@@ -3,7 +3,7 @@
     "use strict";
 
     angular
-    .module('empireCo', ['ngMaterial','ngParallax', 'ui.router']);
+    .module('empireCo', ['ngMaterial','ngParallax', 'ngResource','ui.router']);
 
 
 })();
