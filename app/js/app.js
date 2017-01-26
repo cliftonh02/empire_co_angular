@@ -1,7 +1,5 @@
 (function(){
   angular
-  .module('empireCo', [
-    'ui.router'
-  ]);
+  .module('empireCo', ['ngMaterial', 'ui.router']);
 
 })();
