@@ -1,5 +1,6 @@
 (function(){
     angular
     .module('empireCo')
-    .factory()
+    .factory('Magic', function($resource))
+  
 })();
