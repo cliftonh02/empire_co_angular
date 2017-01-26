@@ -1,6 +1,9 @@
 (function(){
-  angular
-  .module('empireCo', [
-    'ui.router'
-  ]);
+
+    "use strict";
+
+    angular
+    .module('empireCo', ['ngMaterial','ngParallax', 'ui.router']);
+
+
 })();
