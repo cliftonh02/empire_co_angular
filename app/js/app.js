@@ -1,5 +1,7 @@
 (function(){
-  angular
-  .module('empireCo', ['ngMaterial', 'ui.router']);
+    "use strict";
+
+    angular
+    .module('empireCo', ['ngMaterial', 'ui.router']);
 
 })();
