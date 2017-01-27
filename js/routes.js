@@ -14,17 +14,4 @@
     }
 })();
 
-// })
-// //Route for New Products
-// .state('newProducts', {
-//   url: '/products/new',
-//   templateUrl: "../templates/pages/products/new.html",
-//   controller: 'ProductsIndexController',
-//   controllerAs: 'vm'
-// })
-// //Route for edit Products
-// .state('editProducts', {
-//   url: '/products/edit',
-//   templateUrl: "../templates/pages/products/edit.html",
-//   controller: 'ProductsIndexController',
-//   controllerAs: 'vm'
+

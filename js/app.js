@@ -1,5 +1,4 @@
 (function(){
-
     angular
     .module('empireCo', ['ngMaterial','ngParallax', 'ngResource','ui.router'])
     .config(function($mdThemingProvider) {

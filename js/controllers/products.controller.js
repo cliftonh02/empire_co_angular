@@ -9,7 +9,7 @@
 
     console.log('Product-Index View!');
 
-    // Index ====================================================================
+  // Index ====================================================================
     $scope.getProducts = function(){
       $scope.products = ProductFactory.query(function(){
         console.log($scope.products);
@@ -24,6 +24,7 @@
     //     .catch(function(err){ if(err)console.log(err); });
     // };
 
+
     // Show ====================================================================
     // $scope.showProduct = function(id){
     //   $http.get(`${rootURL}/products/${id}`)
@@ -34,7 +35,9 @@
     //     .catch(function(err){ if(err)console.log(err); });
     // };
     //
+
     // // Delete ===============================================================
+
     // $scope.destroyProduct = function(id){
     //   $http.delete(`${rootURL}/products/${id}`)
     //     .then(function(res){
@@ -45,13 +48,17 @@
     //     .catch(function(err){ if(err)console.log(err); });
     // };
 
+
     // // New ==================================================================
+
     // $scope.createProduct = function(product){
     //   $http.post(`${rootURL}/products`, product)
     //     .then(function(res){ console.log(res.data); })
     //     .catch(function(err){ if(err)console.log(err); });
     // };
+
     // // Edit =================================================================
+
     // $scope.editProduct = function(product){
     //   $http.put(`${rootURL}/products/${$scope.product.id}`, product)
     //     .then(function(res){
