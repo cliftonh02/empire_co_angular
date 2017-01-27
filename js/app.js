@@ -5,6 +5,6 @@
     .config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
           .primaryPalette('red')
-          .accentPalette('orange');
+          .accentPalette('cyan');
 });
 })();
