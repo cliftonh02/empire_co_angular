@@ -3,16 +3,16 @@
     .module('empireCo')
     .controller('ProductCtrl', ProductCtrl);
 
-  ProductCtrl.$inject = ['$scope', 'ProductFactory'];
+  ProductCtrl.$inject = ['$scope','ProductFactory'];
 
   function ProductCtrl($scope, ProductFactory) {
 
     console.log('Product-Index View!');
 
-    //Index
+    // Index ====================================================================
     $scope.getProducts = function(){
-      var entries = ProductFactory.query(function(){
-        console.console.log(entries);
+      $scope.products = ProductFactory.query(function(){
+        console.log($scope.products);
       });// get() returns a single entry
         // .then(function(res){
         //   ProductFactory.products = res.data;
@@ -24,7 +24,7 @@
     //     .catch(function(err){ if(err)console.log(err); });
     // };
 
-    //Show
+    // Show ====================================================================
     // $scope.showProduct = function(id){
     //   $http.get(`${rootURL}/products/${id}`)
     //     .then(function(res){
@@ -34,7 +34,7 @@
     //     .catch(function(err){ if(err)console.log(err); });
     // };
     //
-    // //Delete
+    // // Delete ===============================================================
     // $scope.destroyProduct = function(id){
     //   $http.delete(`${rootURL}/products/${id}`)
     //     .then(function(res){
@@ -44,13 +44,14 @@
     //     })
     //     .catch(function(err){ if(err)console.log(err); });
     // };
-    // //New
+
+    // // New ==================================================================
     // $scope.createProduct = function(product){
     //   $http.post(`${rootURL}/products`, product)
     //     .then(function(res){ console.log(res.data); })
     //     .catch(function(err){ if(err)console.log(err); });
     // };
-    // //Edit
+    // // Edit =================================================================
     // $scope.editProduct = function(product){
     //   $http.put(`${rootURL}/products/${$scope.product.id}`, product)
     //     .then(function(res){
