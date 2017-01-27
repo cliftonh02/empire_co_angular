@@ -4,85 +4,85 @@ ___
 
 Empire Co. is an online retailer set in the Star Wars universe where it provides every Storm-Trooper in the empire a modern user shopping experience through a speedy Single Page Application (SPA). Empire Co. specializes in the distribution of armor and weaponry, and features a catalog of products, shopping cart and checkout functionality.
 
-## Synopsis
-
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
-
 ## Motivation
 
 Empire Co. was created because of shared our interest in developing the necassary skills required to create a modern web store. These skills can potentially open us to strategic roles with client retailers both large and independent.
 
-## Development / Installation setup
+## Development / Installation
 
-The following commands are assuming you already have node installed on your machine. If you dont you can download Node.js [here][nodejs].
+This app utilizes Google's front-end Framework Angular Material. To set up the Angular Material you'll need to install the following packages with either bower or npm.
 
-Some dependencies used in the api and what they are being used for in the app.
+### Angular.JS
 
+  https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js
+
+### Angular Material Dependencies
+
+  https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js
+
+  https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js
+
+  https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js
+
+
+## Code Examples
 <details>
   <summary>
-    [morgan]
+    [Angular]
   </summary>
   <br>
   ```js
-  var logger = require('morgan');
-  app.use(logger('dev'));
+  // app.js
+  (function(){
 
-  //Concise output colored by response status for development use. The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+      angular
+      .module('empireCo', ['ngResource','ui.router']);
 
-  // CONSOLE.LOG: :method :url :status :response-time ms - :res[content-length]
+  })();
 
-  // EXAMPLE: GET /api 200 6.823 ms - 43
+  // The power of Angular is really found in it's modularity. Above is an example of the Angular module being instantiated, this instantiation of Angular and it's dependency injections becomes an origin for the entire app to reference.
+
+  // Example:
+  // routes.js
+  (function(){
+    angular
+      .module('empireCo')
+      .config(['$stateProvider', Router]);
+
+      function Router($stateProvider){
+        $stateProvider
+        .state('products', {
+          url: '/products',
+          templateUrl: "../partials/products/index.html",
+          controller: 'ProductCtrl',
+          controllerAs: 'vm'
+        });
+      }
+  })();
+  // Here in routes.js we simply reference our Angular module "empireCo" and through that reference our routes.js inherits the 2 depenency injections to our app. So now our routes.js has access to the "$stateProvider" service which is a component of "ui-router". Modularity and inheritance is an important feature of AngularJS.
   ```
 </details>
 <details>
   <summary>
-    [passport-local-mongoose]
+    [ui-Router]
   </summary>
   <br>
   ```js
-  var passportLocalMongoose = require('passport-local-mongoose');
-  UserSchema.plugin(passportLocalMongoose, {usernameField: 'email'});
+  //routers.js
+  $stateProvider
+  .state('products', {
+    url: '/products',
+    templateUrl: "../partials/products/index.html",
+    controller: 'ProductCtrl',
+    controllerAs: 'vm'
+  });
 
-  // Plugin Passport-Local Mongoose into your User schema
-  // Use options to specify an alternative usernameField
+  //index.html
+  <div ui-view>...</div>
+  // ui-Router provides a Angular views and routing functionality. UI-Router allows you to create a state which is essentially a reference of information. When a state is accessed it will load the configured properties which are normally controller and html files. This updating of states allows your app to hot swap views and controller logic without reloading the page.
   ```
 </details>
 
----
-OS X & Linux:
-
-```sh
-# install app dependencies
-$ npm install
-```
-```sh
-# create database and seed locally
-$ node db/seed.js
-```
-```sh
-# start server
-$ nodemon
-```
-If there are no errors in the terminal, we can now navigate in our browser to: http://localhost:8080/api to interact with our app.
-
-## Useage
-
-Here is documentation on accessing our api.
-
-| URL(s) | / | /login | /logout | /products | /products/:id | /users | /users/:id |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **Method(s)** | `GET` | `POST` | `POST` | `GET` `POST` | `GET` `PUT` `DELETE` | `GET` `POST` | `GET` `PUT` `DELETE` |
-| **Success Response** | | | | | | | |
-| **Error Response** | | | | | | | | |
-
-## Code Example
-
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
-
-## Contributors
-
-Feel free to refactor, update, or add new features. Have any questions, ask one of the contributors below!
 
 | Clifton Hutchins | Dara Hoy | Alyssa Felix |
 |:----------------:|:--------:|:------------:|
